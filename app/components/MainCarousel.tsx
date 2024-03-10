@@ -7,7 +7,7 @@ const MainCarousel = () => {
       <div className="position-relative overflow-hidden">
         <div
           className="nav-slider-hover nav-dots-top-right light-dots"
-          data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'
+          data-flickity={'{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'}
         >
           <article className="col-12">
             <div className="card card-full text-light overflow zoom">
