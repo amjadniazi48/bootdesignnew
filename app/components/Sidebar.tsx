@@ -170,7 +170,7 @@ const Sidebar = () => {
                   <div className="card-body pt-0">
                     <h3 className="card-title h6 h5-sm h6-md">
                       <a href="#">
-                        Apple's stock rout starts and ends with the iPhone
+                        Apple stock rout starts and ends with the iPhone
                       </a>
                     </h3>
                     <div className="card-text small text-muted">

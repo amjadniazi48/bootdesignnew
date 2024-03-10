@@ -7,7 +7,7 @@ const MainCarousel = () => {
       <div className="position-relative overflow-hidden">
         <div
           className="nav-slider-hover nav-dots-top-right light-dots"
-          data-flickity={'{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'}
+          data-flickity='{ "cellAlign": "left", "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'
         >
           <article className="col-12">
             <div className="card card-full text-light overflow zoom">
@@ -122,7 +122,7 @@ const MainCarousel = () => {
                 <div className="position-absolute p-3 b-0 w-100 bg-lg-shadow">
                   <a href="#">
                     <h2 className="h1-sm h2-md display-4-lg fw-bold text-capitalize heading-letter-spacing text-white">
-                      The world's first floating farm making waves in
+                      The world first floating farm making waves in
                       Rotterdam
                     </h2>
                   </a>

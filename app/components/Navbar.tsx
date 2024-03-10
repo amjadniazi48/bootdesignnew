@@ -272,7 +272,7 @@ function Navbar() {
                                   <div className="card-body">
                                     <h3 className="card-title h6">
                                       <a href="../post/single1.html">
-                                        Apple's stock rout starts and ends with
+                                        Apples stock rout starts and ends with
                                         the iPhone
                                       </a>
                                     </h3>
@@ -345,7 +345,7 @@ function Navbar() {
                                     <h3 className="card-title h6">
                                       <a href="../post/single1.html">
                                         Dubai launches pilot for Middle East
-                                        'Shark Tank'
+                                        Shark Tanks
                                       </a>
                                     </h3>
                                     <div className="card-text text-muted small">
@@ -578,7 +578,7 @@ function Navbar() {
                                     <h3 className="card-title h6">
                                       <a href="../post/single1.html">
                                         World and Olympic champion Vonn retires
-                                        saying 'body is broken'
+                                        saying body is broken
                                       </a>
                                     </h3>
                                     <div className="card-text text-muted small">
@@ -649,7 +649,7 @@ function Navbar() {
                                   <div className="card-body">
                                     <h3 className="card-title h6">
                                       <a href="../post/single1.html">
-                                        GB's Bankes wins snowboard cross silver
+                                        GB Bankes wins snowboard cross silver
                                         at World Champs
                                       </a>
                                     </h3>
