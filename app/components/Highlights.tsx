@@ -153,7 +153,7 @@ const Highlights = () => {
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
                     <a href="#">
-                      Dubai launches pilot for Middle East "Shark Tank"
+                      Dubai launches pilot for Middle East Shark Tank
                     </a>
                   </h3>
 
