@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html dir="rtl" lang="ur" data-bs-theme="light">
       <head>
         <meta charSet="utf-8" />
         <meta

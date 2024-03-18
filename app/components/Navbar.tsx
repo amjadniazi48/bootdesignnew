@@ -39,7 +39,7 @@ function Navbar() {
                     aria-expanded="false"
                     href="#"
                   >
-                    Home
+                   صفحہ اول
                   </a>
 
                   <ul className="dropdown-menu" aria-labelledby="navbarhome">
@@ -167,7 +167,7 @@ function Navbar() {
 
                 <li className="nav-item">
                   <a className="nav-link" href="../category/category.html">
-                    Business
+                  امام خمینی ٹرسٹ
                   </a>
                 </li>
 
@@ -180,7 +180,7 @@ function Navbar() {
                     aria-expanded="false"
                     href="#"
                   >
-                    Mega
+                 سرگرمیاں
                   </a>
                   <div
                     id="vertical-tabs"
@@ -873,7 +873,7 @@ function Navbar() {
                     aria-expanded="false"
                     href="#"
                   >
-                    Video
+                    ویڈیوز
                   </a>
                   <div
                     className="dropdown-menu mega w-100 p-4"

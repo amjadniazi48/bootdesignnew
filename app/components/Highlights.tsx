@@ -29,7 +29,7 @@ const Highlights = () => {
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
                     <a href="#">
-                      Apple stock rout starts and ends with the iPhone
+                    هل تريد أفضل عروض الجمعة البيضاء؟ توجه إلى متجر متعدد الأقسام
                     </a>
                   </h3>
 
@@ -43,9 +43,7 @@ const Highlights = () => {
                   </div>
 
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. A small river flows by their
-                    place and ...
+                  هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. يتدفق نهر صغير بمكانهم و ...
                   </p>
                 </div>
               </div>
@@ -70,8 +68,7 @@ const Highlights = () => {
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
                     <a href="#">
-                      Want the best Black Friday deals? Head to a department
-                      store
+                    سچ نیوزلاہورمیں علامہ صاحب کے جوان بھتیجےعلی نقی کی فاتحہ خوانی
                     </a>
                   </h3>
 
@@ -85,9 +82,7 @@ const Highlights = () => {
                   </div>
 
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. A small river flows by their
-                    place and ...
+                  هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. يتدفق نهر صغير بمكانهم و ...
                   </p>
                 </div>
               </div>
@@ -112,7 +107,7 @@ const Highlights = () => {
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
                     <a href="#">
-                      5 Tips to Save Money Booking Your Next Hotel Room
+                    سجاد حسین اور مولانا عقیل کاظمی کی علامہ افتخار حسین نقوی سے ملاقات
                     </a>
                   </h3>
 
@@ -126,9 +121,7 @@ const Highlights = () => {
                   </div>
 
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. A small river flows by their
-                    place and ...
+                  هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. يتدفق نهر صغير بمكانهم و ...
                   </p>
                 </div>
               </div>
@@ -153,7 +146,7 @@ const Highlights = () => {
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
                     <a href="#">
-                      Dubai launches pilot for Middle East Shark Tank
+                    علامہ افتخارحسین نقوی شیخ میثم کی زوجہ کی فاتحہ خوانی پر شیخ جون کے گھر گئے
                     </a>
                   </h3>
 
@@ -167,9 +160,7 @@ const Highlights = () => {
                   </div>
 
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. A small river flows by their
-                    place and ...
+                  هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. يتدفق نهر صغير بمكانهم و ...
                   </p>
                 </div>
               </div>
@@ -194,8 +185,8 @@ const Highlights = () => {
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
                     <a href="#">
-                      The pioneering and popular compact Range Rover Evoque gets
-                      a major makeover
+                    
+تكافح الأسواق الأوروبية لتغلق أعلى ؛ النفط في التركيز
                     </a>
                   </h3>
 
@@ -209,9 +200,7 @@ const Highlights = () => {
                   </div>
 
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. A small river flows by their
-                    place and ...
+                  هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. يتدفق نهر صغير بمكانهم و ...
                   </p>
                 </div>
               </div>
@@ -236,7 +225,7 @@ const Highlights = () => {
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
                     <a href="#">
-                      European markets fight back to close higher; oil in focus
+                    حصلت رينج روفر إيفوك المدمجة والرائدة والشعبية على تحول كبير
                     </a>
                   </h3>
 
@@ -250,9 +239,7 @@ const Highlights = () => {
                   </div>
 
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. A small river flows by their
-                    place and ...
+                  هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. يتدفق نهر صغير بمكانهم و ...
                   </p>
                 </div>
               </div>
@@ -275,7 +262,7 @@ const Highlights = () => {
               <div className="col-sm-6 col-md-12 col-lg-6">
                 <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                   <h3 className="card-title h2 h3-sm h2-md">
-                    <a href="#">MotoGP: Which team needs what in 2019?</a>
+                    <a href="#">غریب، محتاج اور بے سہاروں کا واحد ادارہ امام خمینی ٹرسٹ</a>
                   </h3>
 
                   <div className="card-text mb-2 text-muted small">
@@ -288,9 +275,7 @@ const Highlights = () => {
                   </div>
 
                   <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. A small river flows by their
-                    place and ...
+                  هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. يتدفق نهر صغير بمكانهم و ...
                   </p>
                 </div>
               </div>
