@@ -1,99 +1,51 @@
 import React from 'react'
+import { API_URL } from "./../config/index";
+async function getData() {
+  const res = await fetch('http://localhost:1337/api/post-slider?populate=deep')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+  return res.json()
+}
 
-function RevolvingCarousel() {
+async function RevolvingCarousel() {
+  const data = await getData()
+   console.log(data.data.attributes.createdAt)
   return (
     <div className="col-md-6 pb-05 pt-05 pe-md-05">
     <div className="position-relative overflow-hidden">
       <div className="nav-slider-hover nav-dots-top-right light-dots" data-flickity='{ "cellAlign": "right", "rightToLeft": true, "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
-      
+      {data.data.attributes?.posts?.data.map((clip:any)=>{      
+     return(
         <article className="col-12">
           <div className="card card-full text-light overflow zoom">
          
             <div className="height-ratio image-wrapper">
               <a href="#">
-                <img className="img-fluid lazy" src="./assets/img/assets/lazy-empty.png" data-src="./assets/img/568x484/img1.jpg" alt="وصف الصورة"/>
+                <img  src={`${API_URL}${clip.attributes.image.data.attributes.url}`} alt="وصف الصورة"/>
               </a>
               <div className="position-absolute p-3 b-0 w-100 bg-lg-shadow">
                
                 <a href="#">
-                  <h2 className="h1-sm h2-md display-4-lg font-weight-500 text-white">رئيس البنك يحذر من تحركات موظفي بريكست</h2>
+                  <h2 className="h1-sm h2-md display-4-lg font-weight-500 text-white">{clip.attributes.title}</h2>
                 </a>
                
                 <div className="news-meta">
-                  <span className="news-author">بواسطة <a className="text-white font-weight-bold" href="#">John Doe</a></span>
-                  <time className="news-date" dateTime="2019-10-22">22 أكتوبر 2019</time>
+                  <span className="news-author">بواسطة <a className="text-white font-weight-bold" href="#">
+                    {clip.attributes.createdBy}
+                    </a></span>
+                  <time className="news-date" dateTime="2019-10-22">   {`${new Date(clip.attributes.publishedAt).toLocaleString()}`}</time>
                 </div>
               </div>
             </div>
           </div>
         </article>
-       
-        <article className="col-12">
-          <div className="card card-full text-light overflow zoom">
-         
-            <div className="height-ratio image-wrapper">
-              <a href="#">
-                <img className="img-fluid lazy" src="./assets/img/assets/lazy-empty.png" data-src="./assets/img/568x484/img2.jpg" alt="وصف الصورة"/>
-              </a>
-              <div className="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-              
-                <a href="#">
-                  <h2 className="h1-sm h2-md display-4-lg font-weight-500 text-white">أول مزرعة عائمة في العالم تحدث الأمواج في روتردام</h2>
-                </a>
-              
-                <div className="news-meta">
-                  <span className="news-author">بواسطة <a className="text-white font-weight-bold" href="#">John Doe</a></span>
-                  <time className="news-date" dateTime="2019-10-22">22 أكتوبر 2019</time>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-      
-        <article className="col-12">
-          <div className="card card-full text-light overflow zoom">
-          
-            <div className="height-ratio image-wrapper">
-              <a href="#">
-                <img className="img-fluid lazy" src="./assets/img/assets/lazy-empty.png" data-src="./assets/img/568x484/img3.jpg" alt="وصف الصورة"/>
-              </a>
-              <div className="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-              
-                <a href="#">
-                  <h2 className="h1-sm h2-md display-4-lg font-weight-500 text-white">سهم Walmart يزيد بنسبة 10 ٪ في زيادة المبيعات عبر الإنترنت</h2>
-                </a>
-             
-                <div className="news-meta">
-                  <span className="news-author">بواسطة <a className="text-white font-weight-bold" href="#">John Doe</a></span>
-                  <time className="news-date" dateTime="2019-10-22">22 أكتوبر 2019</time>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-       
-        <article className="col-12">
-          <div className="card card-full text-light overflow zoom">
-          
-            <div className="height-ratio image-wrapper">
-              <a href="#">
-                <img className="img-fluid lazy" src="./assets/img/assets/lazy-empty.png" data-src="./assets/img/568x484/img4.jpg" alt="وصف الصورة"/>
-              </a>
-              <div className="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-            
-                <a href="#">
-                  <h2 className="h1-sm h2-md display-4-lg font-weight-500 text-white">أول مزرعة عائمة في العالم تحدث الأمواج في روتردام</h2>
-                </a>
-             
-                <div className="news-meta">
-                  <span className="news-author">بواسطة <a className="text-white font-weight-bold" href="#">John Doe</a></span>
-                  <time className="news-date" dateTime="2019-10-22">22 أكتوبر 2019</time>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-       
+     )
+        })}     
       </div>
     </div>
   </div>
