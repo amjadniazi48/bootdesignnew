@@ -1,7 +1,7 @@
 import React from 'react'
 import { API_URL } from "./../config/index";
 async function getData() {
-  const res = await fetch('http://localhost:1337/api/post-slider?populate=deep')
+  const res = await fetch(`${API_URL}/api/post-slider?populate=deep`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
