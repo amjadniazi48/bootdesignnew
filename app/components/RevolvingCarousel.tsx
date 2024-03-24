@@ -26,7 +26,7 @@ async function RevolvingCarousel() {
          
             <div className="height-ratio image-wrapper">
               <a href="#">
-                <img  src={`${API_URL}${clip.attributes.image.data.attributes.url}`} alt="وصف الصورة"/>
+                <img  src={clip.attributes.image.data.attributes.url} alt="وصف الصورة"/>
               </a>
               <div className="position-absolute p-3 b-0 w-100 bg-lg-shadow">
                
