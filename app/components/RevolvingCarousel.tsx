@@ -21,7 +21,7 @@ async function RevolvingCarousel() {
       <div className="nav-slider-hover nav-dots-top-right light-dots" data-flickity='{ "cellAlign": "right", "rightToLeft": true, "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'>
       {data.data.attributes?.posts?.data.map((clip:any)=>{      
      return(
-        <article className="col-12">
+        <article className="col-12" key={data.data.attributes?.posts?.id}>
           <div className="card card-full text-light overflow zoom">
          
             <div className="height-ratio image-wrapper">
