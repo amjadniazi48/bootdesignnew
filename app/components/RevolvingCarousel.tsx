@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { API_URL } from "./../config/index";
+import 'moment/locale/ur'
 async function getData() {
   const res = await fetch(`${API_URL}/api/post-slider?populate=deep`,
   { cache: 'no-store' }
@@ -42,7 +43,7 @@ async function RevolvingCarousel() {
                       </a>
                    
                     <div className="position-absolute p-3 b-0 w-100 bg-lg-shadow">
-                      <a href="#">
+                      <a href={`/post/${clip.attributes.slug}`}>
                         <h2 className="h1-sm h2-md display-4-lg font-weight-500 text-white">
                           {clip.attributes.title}
                         </h2>
@@ -51,7 +52,7 @@ async function RevolvingCarousel() {
                         <span className="news-author">
                           <a className="text-white font-weight-bold" href="#">
                             {moment(clip.attributes.createdBy)
-                              .local()
+                              .locale('ur')
                               .format("LL")}
                           </a>
                         </span>
