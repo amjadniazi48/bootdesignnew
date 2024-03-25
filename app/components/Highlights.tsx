@@ -6,7 +6,7 @@ const Highlights = () => {
       <div className="block-area p-4" style={{backgroundColor:"#F7F7F5", border:"1px solid #C2CBCD"}}>
         <div className="block-title-6">
           <h4 className="h5 border-primary">
-            <span className="bg-primary text-white">Latest post</span>
+            <span className="bg-primary text-white">سرگرمیاں</span>
           </h4>
         </div>
 
