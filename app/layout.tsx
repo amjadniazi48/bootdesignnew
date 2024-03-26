@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import "./theme.css";
 import Script from "next/script";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -49,6 +52,8 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+      <Header />
+      <Navbar />
         <div className="wrapper">{children}</div>
 
         <a
@@ -79,9 +84,10 @@ export default function RootLayout({
         <Script src="/assets/js/flickity.pkgd.min.js" />
         <Script src="/assets/js/lazyload.min.js" />
         <Script src="/assets/js/SmoothScroll.js" />
-
         <Script src="/assets/js/theme.js" />
+        <Footer />
       </body>
+     
     </html>
   );
 }

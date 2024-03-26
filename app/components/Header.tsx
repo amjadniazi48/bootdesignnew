@@ -16,7 +16,7 @@ const Header = () => {
                 id="main-logo"
                 className="main-logo my-2 my-lg-4 d-none d-lg-block"
               >
-                <a className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="/">
                   <img
                     className="img-fluid"
                     src="../../assets/img/logo/logo.png" width={100}

@@ -28,7 +28,7 @@ const PostDetails = async ({ params }: Props) => {
   console.log("mydata is", post.data[0].attributes.title);
   const content: BlocksContent = post.data[0].attributes.description;
   return (
-    <Layout>
+   
       <div className="wrapper ">
         {/* main content */}
         <main id="content">
@@ -37,17 +37,17 @@ const PostDetails = async ({ params }: Props) => {
               <div className=" h-auto col-md-12">
                 <div className="block-title-6 text-center">
                   <h4 className="h5 border-primary ">
-                    <span className="bg-primary text-white">Post details</span>
+                    <span className="bg-primary text-white">{post.data[0].attributes.type}</span>
                   </h4>
                 </div>
                 <div className="">
-                  <div className="card border-0  p-3">
-                    <h3 className="card-title">
+                  <div className="card   p-3"  style={{backgroundColor:"#F7F7F5", border:"1px solid #C2CBCD"}} >
+                    <h3 className="card-title" >
                       {post.data[0].attributes.title}
                     </h3>
-                    <div className="card-body">
+                    <div className="block-area p-4">
                       <BlocksRenderer content={content}></BlocksRenderer>
-                      <p></p>
+                     
                     </div>
                   </div>
                 </div>
@@ -56,8 +56,7 @@ const PostDetails = async ({ params }: Props) => {
           </div>
         </main>
       </div>
-    </Layout>
+ 
   );
 };
-
 export default PostDetails;
