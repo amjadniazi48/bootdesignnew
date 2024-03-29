@@ -25,7 +25,7 @@ async function getData(slug: string) {
 }
 const PostDetails = async ({ params }: Props) => {
   const post = await getData(params.slug);
-  console.log("mydata is", post.data[0].attributes.title);
+ console.log("mydata is", post.data[0].attributes.title);
   const content: BlocksContent = post.data[0].attributes.description;
   return (
    
@@ -37,13 +37,13 @@ const PostDetails = async ({ params }: Props) => {
               <div className=" h-auto col-md-12">
                 <div className="block-title-6 text-center">
                   <h4 className="h5 border-primary ">
-                    <span className="bg-primary text-white">{post.data[0].attributes.type}</span>
+                    <span className="bg-primary text-white">{post.data[0].attributes?.categories.data[0].attributes.title}</span>
                   </h4>
                 </div>
                 <div className="">
                   <div className="card   p-3"  style={{backgroundColor:"#F7F7F5", border:"1px solid #C2CBCD"}} >
                     <h3 className="card-title" >
-                      {post.data[0].attributes.title}
+                      {post.data.attributes?.title}
                     </h3>
                     <div className="block-area p-4">
                       <BlocksRenderer content={content}></BlocksRenderer>
