@@ -1,12 +1,8 @@
 import React from "react";
 import { API_URL } from "@/config/index";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import Layout from "../../layout";
-import {
-  BlocksRenderer,
-  type BlocksContent,
-} from "@strapi/blocks-react-renderer";
+
+
 type Props = {
   params: {
     slug: string;
@@ -26,7 +22,7 @@ async function getData(slug: string) {
 const PostDetails = async ({ params }: Props) => {
   const post = await getData(params.slug);
  console.log("mydata is", post.data[0].attributes.title);
-  const content: BlocksContent = post.data[0].attributes.description;
+ 
   return (
    
       <div className="wrapper ">
@@ -46,7 +42,9 @@ const PostDetails = async ({ params }: Props) => {
                       {post.data.attributes?.title}
                     </h3>
                     <div className="block-area p-4">
-                      <BlocksRenderer content={content}></BlocksRenderer>
+                    <ReactMarkdown>
+                    {post.data[0].attributes.description}
+                    </ReactMarkdown>
                      
                     </div>
                   </div>
