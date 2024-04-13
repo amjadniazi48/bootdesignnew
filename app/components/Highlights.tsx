@@ -35,7 +35,9 @@ const Highlights = async () => {
         <div className="border-bottom-last-0 first-pt-0">
           {post.data.map((clip: any) => {
             return (
-              <article className="card card-full hover-a py-4" style={{borderBottom:"1px solid #C2CBCD" }}>
+              <article className="card card-full hover-a py-4" style={{borderBottom:"1px solid #C2CBCD" }}
+              key={clip.attributes.id}
+              >
                 <div className="row">
                   <div className="col-sm-6 col-md-12 col-lg-6">
                     <div className="ratio_360-202 image-wrapper">
