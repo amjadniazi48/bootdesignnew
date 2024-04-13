@@ -24,7 +24,7 @@ const HighLights = () => {
         // `https://jsonplaceholder.typicode.com/comments?_page=1&_limit=${limit}`
       );
       const data = await res.json();
-      console.log("hightlights", data);
+    //  console.log("hightlights", data);
       const total = data.meta.pagination.total;
       setpageCount(Math.ceil(total / limit));
       // console.log(Math.ceil(total/12));
@@ -34,7 +34,7 @@ const HighLights = () => {
 
     getHighlights();
   }, [limit]);
-  // console.log("items", items);
+   console.log("items", items);
   const fetchPublications = async (currentPage) => {
     const res = await fetch(
       `${API_URL}/api/posts?populate=deep&sort=createdAt:desc&pagination[page]=${currentPage}&pagination[pageSize]=${limit}`
@@ -51,6 +51,7 @@ const HighLights = () => {
     const publicationFromServer = await fetchPublications(currentPage);
 
     setItems(publicationFromServer);
+    //console.log(items)
   };
   return (
  
@@ -62,7 +63,9 @@ const HighLights = () => {
               <div className="col-sm-12">
                 <div className="block-title-6 text-center">
                   <h4 className="h5 border-primary">
-                    <span className="bg-primary text-white">سرگرمیاں</span>
+                    <span className="bg-primary text-white">سرگرمیاں
+                    
+                    </span>
                   </h4>
                 </div>
                 <div className="border-bottom-last-0 first-pt-0">
@@ -91,20 +94,20 @@ const HighLights = () => {
                           <div className="row">
                             <div className="col-sm-3">
                               <div>
-                                {highlight.attributes.image.data?.length >
-                                  0 && (
+                                {highlight.attributes.image.data
+                                   && (
                                   <Image
                                     width={
-                                      highlight.attributes.image.data[0]
-                                        .attributes?.formats.thumbnail.width
+                                      highlight.attributes.image.data
+                                        .attributes.formats.thumbnail.width
                                     }
                                     height={
-                                      highlight.attributes.image.data[0]
-                                        .attributes?.formats.thumbnail.height
+                                      highlight.attributes.image.data
+                                        .attributes.formats.thumbnail.height
                                     }
                                     src={
-                                      highlight.attributes.image.data[0]
-                                        .attributes.url
+                                      highlight.attributes.image.data
+                                        .attributes.formats.thumbnail.url
                                     }
                                     alt="Image description"
                                   />
