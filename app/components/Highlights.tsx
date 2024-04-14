@@ -77,18 +77,18 @@ const Highlights = async () => {
                       <div className="card-text mb-2 text-muted small">
                         
                         <time dateTime="2019-10-21"> {moment(clip.attributes.createdBy)
-                              .locale('ur')
+                              .locale('ur-PK')
                               .format("LL")}
                           </time>
                       </div>
 
-                      <p className="card-text">
+                 
                         <ReactMarkdown>
                           {clip.attributes.description
                             .toString().substring(0, 300)
                             .concat("...")}
                         </ReactMarkdown>
-                      </p>
+                     
                     </div>
                   </div>
                 </div>

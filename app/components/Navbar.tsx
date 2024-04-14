@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { API_URL } from "@/config/index";
 import Link from "next/link";
@@ -11,8 +10,8 @@ async function getData() {
   }
   return res.json();
 }
-const Navbar = async() => {
-const Nav = await getData();
+const Navbar = async () => {
+  const Nav = await getData();
   return (
     <div
       id="showbacktop"
@@ -40,17 +39,27 @@ const Nav = await getData();
               id="start-main"
               className="navbar-nav main-nav navbar-uppercase first-start-lg-0"
             >
-              {Nav.map((nav:any) => {
+              {Nav.map((nav: any) => {
                 return (
                   <>
                     {nav.items.length === 0 ? (
                       <li key={nav.id}>
-                        <Link
-                          className="nav-link active text-dark"
-                          href={nav.path}
-                        >
-                          {nav.title}
-                        </Link>
+                        {nav.path === "/" ? (
+                          <a
+                            className="nav-link active text-dark"
+                            href={nav.path}
+                          >
+                            {" "}
+                            {nav.title}
+                          </a>
+                        ) : (
+                          <Link
+                            className="nav-link active text-dark"
+                            href={nav.path}
+                          >
+                            {nav.title}
+                          </Link>
+                        )}
                       </li>
                     ) : (
                       <li className="nav-item dropdown" key={nav.id}>
@@ -66,7 +75,7 @@ const Nav = await getData();
                             className="dropdown-menu"
                             aria-labelledby="navbarhome"
                           >
-                            {nav.items.map((item:any) => {
+                            {nav.items.map((item: any) => {
                               return (
                                 <>
                                   <li key={item.id}>
@@ -89,7 +98,6 @@ const Nav = await getData();
                   </>
                 );
               })}
-         
             </ul>
           </div>
         </nav>
