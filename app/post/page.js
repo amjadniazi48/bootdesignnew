@@ -132,10 +132,10 @@ const HighLights = () => {
                               <p className="card-text">
                                 <ReactMarkdown>
                                 
-                                  {highlight.attributes.description.length > 200
+                                  {highlight.attributes.description.length > 350
                                     ? highlight.attributes.description.slice(
                                         0,
-                                        200
+                                       350
                                       ) + "..."
                                     : highlight.attributes.description}
                                 </ReactMarkdown>
