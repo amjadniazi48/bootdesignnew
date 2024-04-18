@@ -2,6 +2,7 @@ import React from "react";
 import { API_URL } from "@/config/index";
 import moment from "moment";
 import ReactMarkdown from "react-markdown";
+import Link from "next/link";
 import 'moment/locale/ur'
 async function getData() {
   const res = await fetch(
@@ -68,11 +69,11 @@ const Highlights = async () => {
                   <div className="col-sm-6 col-md-12 col-lg-6">
                     <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                       <h3 className="card-title h2 h3-sm h2-md">
-                      <a href={`/post/${clip.attributes.slug}`}>
+                      <Link href={`/post/${clip.attributes.slug}`}>
                           {clip.attributes.title.length > 30
                             ? clip.attributes.title.slice(0, 30) + "..."
                             : clip.attributes.title}
-                        </a>
+                        </Link>
                       </h3>
                       <div className="card-text mb-2 text-muted small">
                         

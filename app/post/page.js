@@ -117,7 +117,7 @@ const HighLights = () => {
                             <div className="col-sm-9 mt-3">
                               <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
                                 <Link
-                                  href={`highlights/${highlight.attributes.slug}`}
+                                  href={`post/${highlight.attributes.slug}`}
                                 >
                                   <h3 className="card-title h2 h3-sm h2-md">
                                     {highlight.attributes.title}
