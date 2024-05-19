@@ -29,17 +29,17 @@ async function StaticCarousel() {
             <article className="col-6" key={clip.id}>
               <div className="card card-full text-white overflow zoom">
                 <div className="height-ratio image-wrapper">
-                  {clip.attributes.image.data.attributes.formats.medium?.url? (
+                  {clip.attributes.image.data[0].attributes.formats.medium?.url? (
                   <a href="#">
                     <img
-                      src={clip.attributes.image.data.attributes.formats.medium.url}
+                      src={clip.attributes.image.data[0].attributes.formats.medium.url}
                       alt="Image description"
                     />
                   </a>
                   ):(
                     <a href="#">
                     <img
-                    src={clip.attributes.image.data.attributes.formats.thumbnail.url}
+                    src={clip.attributes.image.data[0].attributes.formats.thumbnail.url}
                     alt="Image description"
                   />
                    </a>

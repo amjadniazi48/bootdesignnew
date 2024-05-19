@@ -136,7 +136,7 @@ function HeadertopMenu() {
                id="showStartPush"
                aria-label="sidebar menu"
                className="navbar-toggler sidebar-menu-trigger side-hamburger border-0 px-0"
-               href="javascript:;"
+               href="javascript::void(0);"
              >
                <span className="hamburger-icon">
                  <span></span>
@@ -196,11 +196,7 @@ function HeadertopMenu() {
              </button>
  
              <div id="navbarTogglerDemo" className="collapse navbar-collapse">
-               <div className="date-area d-none d-lg-block">
-                 <time className="navbar-text me-2" dateTime="2019-10-28">
-                   Monday, Oct 28, 2019
-                 </time>
-               </div>
+            
  
                <ul className="navbar-nav">
                  <li className="nav-item">

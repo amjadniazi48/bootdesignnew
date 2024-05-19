@@ -3,7 +3,7 @@ import moment from "moment";
 import { API_URL } from "./../config/index";
 import 'moment/locale/ur'
 async function getData() {
-  const res = await fetch(`${API_URL}/api/post-slider?populate=deep&locale=ur-PK`,
+  const res = await fetch(`${API_URL}/api/revolving-sliders?populate=deep`,
   { cache: 'no-store' }
   );
   // The return value is *not* serialized
@@ -26,18 +26,19 @@ async function RevolvingCarousel() {
           className="nav-slider-hover nav-dots-top-right light-dots"
           data-flickity='{ "cellAlign": "right", "rightToLeft": true, "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "pageDots": true, "imagesLoaded": true }'
         >
-          {data.data.attributes?.posts?.data.map((clip: any) => {
-            {console.log(clip.attributes.slider)}
+          {data.data.map((clip: any) => {
+            // {console.log(clip.attributes.slider)}
             return (
             
-              <article className="col-12" key={clip.attributes?.posts?.id}>
-                  {clip.attributes.type=="RevolvingSlider"? (
+              <article className="col-12" key={clip.id}>
+                  {clip.attributes.image? (
                 <div className="card card-full text-light overflow zoom">
                   <div className="height-ratio image-wrapper">
                   
                       <a href="#">
                         <img
-                          src={clip.attributes.image.data.attributes.url}
+                          src={clip.attributes.image.data.attributes.formats
+                            .medium.url}
                           alt="وصف الصورة"
                         />
                       </a>

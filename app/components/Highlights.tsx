@@ -42,12 +42,12 @@ const Highlights = async () => {
                 <div className="row">
                   <div className="col-sm-6 col-md-12 col-lg-6">
                     <div className="ratio_360-202 image-wrapper">
-                      {clip.attributes.image.data.attributes.formats.small
+                      {clip.attributes.image.data[0].attributes.formats.small
                         ?.url ? (
                         <a href="#">
                           <img
                             src={
-                              clip.attributes.image.data.attributes.formats
+                              clip.attributes.image.data[0].attributes.formats
                                 .small.url
                             }
                             alt="Image description"

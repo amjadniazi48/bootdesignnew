@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter,Noto_Nastaliq_Urdu } from "next/font/google";
 import "./globals.scss";
 import "./theme.css";
 import Script from "next/script";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Noto_Nastaliq_Urdu({ subsets: ["latin"],
+  weight:['400','500'],
+ });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -47,7 +49,7 @@ export default function RootLayout({
           href="../../assets/img/favicon/apple-icon.png"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap"
+          href="//fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css"
           rel="stylesheet"
         />
       </head>

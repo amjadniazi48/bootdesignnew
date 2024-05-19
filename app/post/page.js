@@ -94,15 +94,15 @@ const HighLights = () => {
                               {highlight.attributes.image.data && (
                                 <Image
                                   width={
-                                    highlight.attributes.image.data.attributes
+                                    highlight.attributes.image.data[0].attributes
                                       .formats.thumbnail.width
                                   }
                                   height={
-                                    highlight.attributes.image.data.attributes
+                                    highlight.attributes.image.data[0].attributes
                                       .formats.thumbnail.height
                                   }
                                   src={
-                                    highlight.attributes.image.data.attributes
+                                    highlight.attributes.image.data[0].attributes
                                       .formats.thumbnail.url
                                   }
                                   alt="Image description"
