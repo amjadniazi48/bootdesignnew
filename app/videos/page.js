@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { API_URL } from "@/config/index";
-import Layout from "@/components/Layout";
+
 import ReactPaginate from "react-paginate";
 const Videos = () => {
   const [items, setItems] = useState([]);
@@ -43,7 +43,7 @@ const Videos = () => {
     setItems(publicationFromServer);
   };
   return (
-    <Layout title="Videos">
+   
       <div className="wrapper ">
         {/* main content */}
         <main id="content">
@@ -99,7 +99,7 @@ const Videos = () => {
           </div>
         </main>
       </div>
-    </Layout>
+ 
   );
 };
 
