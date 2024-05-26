@@ -4,6 +4,7 @@ import { API_URL } from "@/config/index";
 import ReactMarkdown from "react-markdown";
 import { useState, useCallback } from "react";
 import { PhotoAlbum, RenderPhoto } from "react-photo-album";
+import Link from "next/link";
 //======================
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
