@@ -82,10 +82,7 @@ export default function PostID({ params }) {
               <div className="block-title-6 text-center">
                 <h4 className="h5 border-primary ">
                   <span className="bg-primary text-white">
-                    {
-                      data.data[0].attributes?.categories.data[0].attributes
-                        .title
-                    }
+                  سرگرمیاں
                   </span>
                 </h4>
               </div>

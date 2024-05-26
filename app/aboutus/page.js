@@ -43,7 +43,7 @@ export default function Intro() {
         //=========
       });
   }, []);
-  console.log("items", items);
+ // console.log("items", items);
 
   const renderPhoto = ({
     layout,
@@ -82,7 +82,7 @@ export default function Intro() {
               <div className="block-title-6 text-center">
                 <h4 className="h5 border-primary ">
                   <span className="bg-primary text-white">
-                  تعارفs
+                  تعارف
                   </span>
                 </h4>
               </div>
