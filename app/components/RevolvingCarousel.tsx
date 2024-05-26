@@ -3,7 +3,7 @@ import moment from "moment";
 import { API_URL } from "./../config/index";
 import 'moment/locale/ur'
 async function getData() {
-  const res = await fetch(`${API_URL}/api/revolving-sliders?populate=deep`,
+  const res = await fetch(`${API_URL}/api/posts?populate=deep&filters[type][$eq]=revolving`,
   { cache: 'no-store' }
   );
   // The return value is *not* serialized
@@ -37,7 +37,7 @@ async function RevolvingCarousel() {
                   
                       <a href="#">
                         <img
-                          src={clip.attributes.image.data.attributes.formats
+                          src={clip.attributes.image.data[0].attributes.formats
                             .medium.url}
                           alt="وصف الصورة"
                         />
