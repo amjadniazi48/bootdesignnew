@@ -28,7 +28,7 @@ const Highlights = async () => {
         <div className="block-title-6">
           <h4 className="h5 border-primary">
             <span className="bg-primary text-white">
-              {post.data[0].attributes?.categories.data[0].attributes.title}
+              {post.data.attributes?.categories.data.attributes.title}
             </span>
           </h4>
         </div>
