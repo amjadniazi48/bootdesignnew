@@ -6,7 +6,7 @@ import Link from "next/link";
 import 'moment/locale/ur'
 async function getData() {
   const res = await fetch(
-    `${API_URL}/api/posts?populate=*&filters[type][$eq]=NormalPost`,
+    `${API_URL}/api/posts?populate=deep`,
     { cache: "no-store" }
   );
   if (!res.ok) {
@@ -57,8 +57,7 @@ const Highlights = async () => {
                         <a href="#">
                           <img
                             src={
-                              clip.attributes.image.data.attributes.formats
-                                .thumbnail.url
+                              clip.attributes.image.data[0].attributes.formats.thumbnail.url
                             }
                             alt="Image description"
                           />

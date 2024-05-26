@@ -1,9 +1,10 @@
 import React from "react";
 import { API_URL } from "./../config/index";
 import "moment/locale/ur";
+import Link from "next/link";
 async function getData() {
   const res = await fetch(
-    `${API_URL}/api/posts?populate=deep&filters[type][$eq]=StaticSlider&locale=ur-PK`,
+    `${API_URL}/api/staticsliders?populate=deep`,
     { cache: "no-store" }
   );
   // The return value is *not* serialized
@@ -29,10 +30,10 @@ async function StaticCarousel() {
             <article className="col-6" key={clip.id}>
               <div className="card card-full text-white overflow zoom">
                 <div className="height-ratio image-wrapper">
-                  {clip.attributes.image.data[0].attributes.formats.medium?.url? (
+                  {clip.attributes.image.data.attributes.formats.medium?.url? (
                   <a href="#">
                     <img
-                      src={clip.attributes.image.data[0].attributes.formats.medium.url}
+                      src={clip.attributes.image.data.attributes.formats.medium.url}
                       alt="Image description"
                     />
                   </a>
@@ -50,11 +51,11 @@ async function StaticCarousel() {
                     <a className="p-1 badge bg-primary text-white" href="#">
                   
                     </a>
-                    <a href="#">
+                    <Link href={`staticsliders/${clip.attributes.slug}`}>
                       <h2 className="h6 h4-sm h6-md h5-lg text-white my-1">
                      { clip.attributes.title}
                       </h2>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
