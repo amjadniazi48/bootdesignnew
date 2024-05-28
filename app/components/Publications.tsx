@@ -9,7 +9,7 @@ const Publications = () => {
       >
         <div className="block-title-13">
           <h4 className="h5 title-box-dot">
-            <span>تصميم داخلي</span>
+            <span> مطبو عا  ت</span>
           </h4>
           <div className="dot-line"></div>
         </div>

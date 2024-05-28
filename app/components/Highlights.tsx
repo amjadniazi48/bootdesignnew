@@ -28,7 +28,7 @@ const Highlights = async () => {
         <div className="block-title-6">
           <h4 className="h5 border-primary">
             <span className="bg-primary text-white">
-              {post.data.attributes?.categories.data.attributes.title}
+            سرگرمیاں
             </span>
           </h4>
         </div>
@@ -41,7 +41,7 @@ const Highlights = async () => {
               >
                 <div className="row">
                   <div className="col-sm-6 col-md-12 col-lg-6">
-                    <div className="ratio_360-202 image-wrapper">
+                    <div className="ratio_327-278 image-wrapper">
                       {clip.attributes.image.data[0].attributes.formats.small
                         ?.url ? (
                         <a href="#">

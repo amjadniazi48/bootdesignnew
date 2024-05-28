@@ -103,7 +103,7 @@ const HighLights = () => {
           paddingTop: "8px",
           paddingBottom: "8px",
           overflow: "visible",
-          textAlign: "left",
+          textAlign: "center",
           fontSize: "13px",
           overflowWrap: "break-word",
           fontWeight: "bolder",
@@ -111,7 +111,7 @@ const HighLights = () => {
           // inlineSize: "350px"
         }}
       >
-        {title.length > 30 ? title.slice(0, 30) + "..." : title}
+        {title.length > 30 ? title.slice(0, 45) + "..." : title}
       </div>
     </div>
   );
