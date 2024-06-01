@@ -37,7 +37,7 @@ const Publications = async () => {
           {publications &&
             publications.data.map((publication, index) => {
               return (
-                <article className="col-12 col-sm-6 col-lg-4 me-2">
+                <article className="col-12 col-sm-6 col-lg-4 me-2" key={publication.id}>
                   <div className="mb-4">
                     <div className="card card-full hover-a">
                       <div className="ratio_327-278 image-wrapper">

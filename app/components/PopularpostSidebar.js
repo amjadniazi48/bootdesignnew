@@ -28,7 +28,7 @@ const PopularpostSidebar = async () => {
       <ul className="post-number list-unstyled border-bottom-last-0 rounded mb-3">
         {post.data.map((clip) => {
           return (
-           <li> <Link href={`/post/${clip.attributes.slug}`}>
+           <li key={clip.id}> <Link href={`/post/${clip.attributes.slug}`}>
               {clip.attributes.title.length > 30
                 ? clip.attributes.title.slice(0, 30) + "..."
                 : clip.attributes.title}
