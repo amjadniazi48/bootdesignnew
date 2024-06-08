@@ -6,7 +6,7 @@ const Contactus = () => {
       <div class="container content-space-t-1 p-4 mt-20 ">
         <div className="block-title-6 text-center">
           <h4 className="h5 border-primary mb-5">
-            <span className="bg-primary text-white">Get in Touch</span>
+            <span className="bg-primary text-white">ہم سے رابطہ کریں</span>
           </h4>
         </div>
 
@@ -19,13 +19,12 @@ const Contactus = () => {
                 </div>
 
                 <div class="mb-5">
-                  <h4 className="fw-bold">Head Office</h4>
+                  <h4 className="fw-bold">رابطہ برائے خط وکتابت</h4>
                 </div>
 
                 <div class="mb-5">
                   <span class="d-block">
-                    Islamabad: Suit # 14, 3rd Floor, Al-Baber Centre, F-8 Markaz
-                    Islamabad
+                  امام خمینی ٹرسٹ پکی شاہ مردان ،میانوالی، لاہور، پاکستان
                   </span>
                 </div>
 
