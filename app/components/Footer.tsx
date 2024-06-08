@@ -15,7 +15,7 @@ const Footer = () => {
               <li className="nav-item"><a className="nav-link" href="#" target="_blank">اشتري الآن</a></li>
             </ul>   
             <ul className="navbar-nav ms-auto text-center">
-              <li className="d-inline navbar-text">Copyright © 2024. IK Trust. All Rights Reserved. </li>
+              <li>Copyright © 2024 IK Trust. All Rights Reserved. </li>
             </ul>
          
           </nav>
