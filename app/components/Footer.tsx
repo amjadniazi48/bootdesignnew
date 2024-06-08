@@ -14,7 +14,7 @@ const Footer = () => {
               <li className="nav-item"><a className="nav-link" href="privacy-policy.html">خصوصية</a></li>
               <li className="nav-item"><a className="nav-link" href="#" target="_blank">اشتري الآن</a></li>
             </ul>   
-            <span style={{color:"white"}}>Copyright © 2024 IK Trust. All Rights Reserved. </span>
+            <span style={{color:"white",marginRight:"15%"}}>Copyright © 2024 IK Trust. All Rights Reserved. </span>
          
           </nav>
        
