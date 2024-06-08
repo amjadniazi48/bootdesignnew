@@ -2,45 +2,51 @@ import React from "react";
 
 const Contactus = () => {
   return (
-  
-      <div class="container content-space-t-1 p-4 mt-20 ">
-        <div className="block-title-6 text-center">
-          <h4 className="h5 border-primary mb-5">
-            <span className="bg-primary text-white">ہم سے رابطہ کریں</span>
-          </h4>
-        </div>
+    <div class="container content-space-t-1 p-4 mt-20 ">
+      <div className="block-title-6 text-center">
+        <h4 className="h5 border-primary mb-5">
+          <span className="bg-primary text-white">ہم سے رابطہ کریں</span>
+        </h4>
+      </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center">
-          <div class="col-4 mb-4 mb-lg-0">
-            <div class="card card-lg text-center h-100">
-              <div class="card-body">
-                <div class="mb-3">
-                  <i class="bi-person-circle fs-1 text-dark"></i>
-                </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 d-flex justify-content-center">
+        <div class="col-4 mb-4 mb-lg-0">
+          <div class="card card-lg text-center h-100">
+            <div class="card-body">
+              <div class="mb-3">
+                <i class="bi-person-circle fs-1 text-dark"></i>
+              </div>
 
-                <div class="mb-5">
-                  <h4 className="fw-bold">رابطہ برائے خط وکتابت</h4>
-                </div>
+              <div class="mb-5">
+                <h4 className="fw-bold">رابطہ برائے خط وکتابت</h4>
+              </div>
 
-                <div class="mb-5">
-                  <span class="d-block">
+              <div class="mb-5">
+                <span class="d-block">
                   امام خمینی ٹرسٹ پکی شاہ مردان ،میانوالی، لاہور، پاکستان
-                  </span>
+                </span>
+              </div>
+
+              <div className="row">
+                <div classNa="col-6" href="mailto: info@ssdo.org.pk ">
+                  ہیڈ آفس نمبر
                 </div>
 
-                <div class="d-grid mb-3">
-                  <a class="btn btn-white" href="mailto: info@ssdo.org.pk ">
-                    <i class="bi-envelope-open me-2"></i> info@ssdo.org.pk
-                  </a>
+                <div className="col-6">
+                  <i class="bi-telephone me-2"></i> 0459395550
+                </div>
+              </div>
+              <div className="row">
+                <div classNa="col-6" href="mailto: info@ssdo.org.pk ">
+                  سید ابرا حسین نقوی
                 </div>
 
-                <a class="btn btn-ghost-dark btn-sm" href="#">
-                  <i class="bi-telephone me-2"></i> +92-051-2287298
-                </a>
+                <div className="col-6">
+                  <i class="bi-telephone me-2"></i> s03006664552
+                </div>
               </div>
             </div>
           </div>
-
           <div class="col-4 mb-4 mb-lg-0">
             <div class="card card-lg text-center h-100">
               <div class="card-body">
@@ -96,7 +102,7 @@ const Contactus = () => {
           </div>
         </div>
       </div>
-  
+    </div>
   );
 };
 
