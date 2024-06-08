@@ -6,7 +6,7 @@ import Link from "next/link";
 import 'moment/locale/ur'
 async function getData() {
   const res = await fetch(
-    `${API_URL}/api/posts?populate=deep`,
+    `${API_URL}/api/posts?populate=deep&filters[type][$eq]=normal&sort=createdAt:desc&pagination[limit]=10`,
     { cache: "no-store" }
   );
   if (!res.ok) {

@@ -7,9 +7,7 @@ const Contactus = () => {
         <h4 className="h5 border-primary mb-5">
           <span className="bg-primary text-white">ہم سے رابطہ کریں</span>
         </h4>
-      </div>
-
-    
+      </div>   
         <div class="row">   
               <div class="col-12">
                 <h4 className="fw-bold">رابطہ برائے خط وکتابت</h4>
@@ -20,7 +18,6 @@ const Contactus = () => {
                   امام خمینی ٹرسٹ پکی شاہ مردان ،میانوالی، لاہور، پاکستان
                 </span>
               </div>
-
               <div className="row">
                 <div classNa="col-6" href="mailto: info@ssdo.org.pk ">
                   ہیڈ آفس نمبر
