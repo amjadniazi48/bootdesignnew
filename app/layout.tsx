@@ -52,8 +52,9 @@ export default function RootLayout({
           href="//fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css"
           rel="stylesheet"
         />
+        
       </head>
-      <body className={inter.className}>
+      <body className={inter.className}  >
       <Header />
       <Navbar />
         <div className="wrapper">{children}</div>

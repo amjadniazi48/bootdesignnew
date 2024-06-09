@@ -8,7 +8,7 @@ import Sidebar from "./Sidebar";
 const Main = () => {
   return (
     <main id="content">
-      <div className="container">
+      <div className="container ">
         <div className="row">
           <div className="col-12 mt-05">
             <Marquee />

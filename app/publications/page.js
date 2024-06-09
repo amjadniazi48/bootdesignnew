@@ -117,7 +117,7 @@ const Publications = () => {
           // inlineSize: "350px"
         }}
       >
-        <h5 className="card-title text-center mt-2">
+      <h5 className="card-title text-center mt-2">
           {file && (
             <Link href={file} target="_blank">
               <span className="badge  bg-danger text-light">Download</span>

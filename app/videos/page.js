@@ -62,7 +62,7 @@ const Videos = () => {
                         <div
                           style={{ height: "18rem" }}
                           key={video.id}
-                          className="player-wrapper col-md-4 "
+                          className="player-wrapper col-md-4 mb-3"
                         >
                           <ReactPlayer
                             className="react-player"
