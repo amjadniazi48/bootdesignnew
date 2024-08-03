@@ -9,8 +9,6 @@ import Image from "next/image";
 import { useSearchParams } from 'next/navigation'
 import ReactMarkdown from "react-markdown";
 import "moment/locale/ur";
-
-
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 //==================

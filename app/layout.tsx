@@ -6,6 +6,7 @@ import Script from "next/script";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Suspense } from "react";
 const inter = Noto_Nastaliq_Urdu({ subsets: ["latin"],
   weight:['400','500'],
  });
@@ -57,7 +58,11 @@ export default function RootLayout({
       <body className={inter.className}  >
       <Header />
       <Navbar />
-        <div className="wrapper">{children}</div>
+        <div className="wrapper">
+        <Suspense>
+          {children}
+          </Suspense>
+          </div>
 
         <a
           className="back-top btn btn-light border position-fixed r-1 b-1"
