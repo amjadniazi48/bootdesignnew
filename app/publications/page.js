@@ -10,7 +10,8 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-
+import Download from "yet-another-react-lightbox/plugins/download";
+import Share from "yet-another-react-lightbox/plugins/share";
 import ReactPaginate from "react-paginate";
 
 import "moment/locale/ur";
@@ -84,7 +85,7 @@ const Publications = () => {
     layout,
     layoutOptions,
     imageProps: { alt, style, ...restImageProps },
-    photo: { src, tags, title, file },
+    photo: { file, tags },
   }) => (
     <div
       className="shadow-sm"
@@ -217,12 +218,15 @@ const fetchPhotos = async (currentPage) => {
                   onClick={({ photo: { File }, index }) => setIndex(index)}
                 />
                 <Lightbox
-                  slides={items}
+                  slides={items.map((slide) => ({
+                    ...slide,
+                    download: `${slide.file}?download`,
+                  }))}
                   open={index >= 0}
                   index={index}
                   close={() => setIndex(-1)}
                   // enable optional lightbox plugins
-                  plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+                  plugins={[Fullscreen, Slideshow, Thumbnails, Zoom, Download,Share]}
                 />
               <ReactPaginate
                 previousLabel={"previous"}
