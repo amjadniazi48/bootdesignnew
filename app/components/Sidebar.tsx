@@ -13,7 +13,7 @@ const Sidebar = () => {
         <PopularpostSidebar />
         <MostreadSidebar />
         <SubscriptionSidebar />
-        <TravellingSidebar />
+      
       </div>
     </aside>
   );
