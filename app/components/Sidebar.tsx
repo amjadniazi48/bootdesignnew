@@ -3,7 +3,7 @@ import SocialmediaSidebar from "./SocialmediaSidebar";
 import PopularpostSidebar from "./PopularpostSidebar"
 import MostreadSidebar from  "./MostreadSidebar";
 import SubscriptionSidebar from "./SubscriptionSidebar";
-import TravellingSidebar from "./TravellingSidebar";
+
 
 const Sidebar = () => {
   return (
@@ -13,7 +13,6 @@ const Sidebar = () => {
         <PopularpostSidebar />
         <MostreadSidebar />
         <SubscriptionSidebar />
-      
       </div>
     </aside>
   );

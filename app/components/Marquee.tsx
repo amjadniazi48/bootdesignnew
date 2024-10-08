@@ -1,6 +1,26 @@
-import React from 'react'
+import React from "react";
+import { API_URL } from "@/config/index";
+import moment from "moment";
+import ReactMarkdown from "react-markdown";
+import Link from "next/link";
+import 'moment/locale/ur'
+async function getData() {
+  const res = await fetch(
+    `${API_URL}/api/posts?filters[type][$eq]=normal&filters[Latest][$eq]=true&populate[image][fields][0]=name&populate[image][fields][1]=url&pagination[pageSize]=10&pagination[page]=1&publicationState=live`,
+    { cache: "no-store" }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+const Marquee = async () => {
+  const post = await getData();
+  // console.log("mydata is", post.data.attributes.title);
 
-const Marquee = () => {
+
+  
   return (
     <div className="row py-2">
      <div className="col-2 col-sm-1 col-md-3 col-lg-2 py-1 pe-md-0 mb-md-1">
@@ -16,26 +36,14 @@ const Marquee = () => {
               <div className="col-10 col-sm-11 col-md-9 col-lg-10 ps-1 ps-md-2">
                 <div className="breaking-box position-relative py-2">
                   <div className="box-carousel" data-flickity='{ "cellAlign": "left", "rightToLeft": true, "wrapAround": true, "adaptiveHeight": true, "prevNextButtons": true , "autoPlay": 5000, "pageDots": false, "imagesLoaded": true }'>
-                  
-                    <div className="col-12 aribudin">
-                        <a className="h6 font-weight-light" href="#">موظفو Google يحتجون على العمل السري على محرك البحث الخاضع للرقابة في الصين</a>
+                  {post.data.map((clip: any) => {
+                      return (
+
+                    <div className="col-12 aribudin"   key={clip.attributes.id}>
+                        <Link className="h6 font-weight-light" href={`post/${clip.attributes.slug}`}>{clip.attributes.title}</Link>
                     </div>
-                  
-                    <div className="col-12 aribudin">
-                      <a className="h6 font-weight-light" href="#">حقق المستثمرون الذين يراهنون ضد تسلا مليار دولار يوم الجمعة</a>
-                    </div>
-                  
-                    <div className="col-12 aribudin">
-                      <a className="h6 font-weight-light" href="#">وقع كارميلو أنتوني رسميًا مع فريق هيوستن روكتس</a>
-                    </div>
-                   
-                    <div className="col-12 aribudin">
-                      <a className="h6 font-weight-light" href="#">الليمون يجعل بشرتك نضرة ومتوهجة</a>
-                    </div>
-                   
-                    <div className="col-12 aribudin">
-                      <a className="h6 font-weight-light" href="#">5 نصائح من مقابلة Elon Musk مع التايمز حول Tesla</a>
-                    </div>
+                      )
+                    })}    
                   </div>
                 </div>
               </div>

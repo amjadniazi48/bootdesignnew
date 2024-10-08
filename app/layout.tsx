@@ -29,7 +29,7 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         ></meta>
-        <title>Homepage - BootNews Magazine</title>
+        <title>Homepage -IK Trust</title>
         <meta
           name="description"
           content="Bootnews Bootstrap 5 News Magazine Template"
