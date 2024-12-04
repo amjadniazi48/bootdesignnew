@@ -21,7 +21,6 @@ const Header = async () => {
   return (
     <header className="header">
       <div className="container">
-        <HeadertopMenu />
         <div className="row">
           <div className="col-12">
             <a className="navbar-brand" href="/">
