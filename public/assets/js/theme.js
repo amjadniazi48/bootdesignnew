@@ -216,7 +216,7 @@
           for (var j = 0; j < dropdownMenu_b.length; j++) {
             var elm = dropdownMenu_b[j];
             var rect = elm.getBoundingClientRect();
-            var l = rect.left;
+            var l = rect.right;
             var w = elm.offsetWidth;
             var docW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             var isEntirelyVisible = l + w;

@@ -27,13 +27,14 @@ const Navbar = async () => {
             className="collapse navbar-collapse hover-mode"
           >
             <div className="logo-showbacktop">
-              <a href="index.html">
-                <img
+              <a href="/">
+                {/* <img
                   className="img-fluid"
                   src="../../assets/img/logo/default-logo.png"
                   alt="Logo site"
-                />
-              </a>
+              */}
+              امام خمینی ٹرسٹ
+              </a> 
             </div>
             <ul
               id="start-main"

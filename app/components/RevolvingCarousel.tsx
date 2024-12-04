@@ -38,7 +38,7 @@ async function RevolvingCarousel() {
                       <a href="#">
                         <img
                           src={clip.attributes.image.data[0].attributes.formats
-                            .medium.url}
+                            .medium?.url}
                           alt="وصف الصورة"
                         />
                       </a>

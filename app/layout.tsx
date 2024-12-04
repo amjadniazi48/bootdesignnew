@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 //import { Suspense } from "react";
-const inter = Noto_Nastaliq_Urdu({ subsets: ["latin"],
+const nastaliq = Noto_Nastaliq_Urdu({ subsets: ["latin"],
   weight:['400','500'],
  });
 
@@ -55,14 +55,15 @@ export default function RootLayout({
         />
         
       </head>
-      <body className={inter.className}  >
+      <body className={nastaliq.className}  >
+      <div className="wrapper">   
       <Header />
       <Navbar />
-        <div className="wrapper">
+      
       {/* //  <Suspense> */}
           {children}
           {/* </Suspense> */}
-          </div>
+          
 
         <a
           className="back-top btn btn-light border position-fixed r-1 b-1"
@@ -88,6 +89,7 @@ export default function RootLayout({
             ></path>
           </svg>
         </a>
+        <Footer />
         <Script src="/assets/js/bootstrap.bundle.min.js" />
         <Script src="/assets/js/hc-sticky.js" />
         <Script src="/assets/js/flickity.pkgd.min.js" />
@@ -95,7 +97,8 @@ export default function RootLayout({
         <Script src="/assets/js/SmoothScroll.js" />
         <Script src="/assets/js/theme.js" />
      
-        <Footer />
+       
+        </div>
       </body>
      
     </html>
