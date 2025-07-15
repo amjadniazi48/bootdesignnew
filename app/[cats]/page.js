@@ -6,59 +6,86 @@ import Link from "next/link";
 import ReactPaginate from "react-paginate";
 import moment from "moment";
 import Image from "next/image";
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import "moment/locale/ur";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import qs from "qs";
+
+const limit = 10;
 
 const HighLights = () => {
   const searchParams = useSearchParams();
-  const slug = searchParams.get('slug');
+  const slug = searchParams.get("slug");
+
   const [items, setItems] = useState([]);
-  const [categoryTitle, setCategoryTitle] = useState('');
-  const [pageCount, setpageCount] = useState(0);
+  const [categoryTitle, setCategoryTitle] = useState("");
+  const [pageCount, setPageCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  let limit = 10;
+
+  const buildQuery = (page = 1) => {
+    return qs.stringify(
+      {
+        populate: {
+          image: {
+            fields: ["name", "url", "alternativeText", "formats"],
+          },
+          categories: {
+            fields: ["title", "slug"],
+          },
+        },
+        filters: {
+          categories: {
+            slug: {
+              $eq: slug,
+            },
+          },
+        },
+        pagination: {
+          page,
+          pageSize: limit,
+        },
+      },
+      { encodeValuesOnly: true }
+    );
+  };
 
   useEffect(() => {
-    setLoading(true);
+    if (!slug) return;
+
     const getHighlights = async () => {
-      // First fetch the category details to get the title
+      setLoading(true);
+
+      // Fetch category title
       const categoryRes = await fetch(
         `${API_URL}/api/categories?filters[slug][$eq]=${slug}`
       );
       const categoryData = await categoryRes.json();
-      
-      if (categoryData.data && categoryData.data.length > 0) {
+
+      if (categoryData.data?.length > 0) {
         setCategoryTitle(categoryData.data[0].attributes.title);
       }
 
-      // Then fetch the posts
-      const res = await fetch(
-        `${API_URL}/api/posts/?populate?populate[image][fields][0]=name&populate[image][fields][1]=url&populate[image][fields][2]=aletrnativeText&populate[image][fields][3]=formats&populate[categories][fields][0]=title&populate[categories][fields][1]=slug&filters[categories][slug][$eq]=${slug}&pagination[pageSize]=${limit}`
-      );
+      // Fetch posts (page 1)
+      const query = buildQuery(1);
+      const res = await fetch(`${API_URL}/api/posts?${query}`);
       const data = await res.json();
-      const total = data.meta.pagination.total;
-      setpageCount(Math.ceil(total / limit));
+
+      setItems(data.data || []);
+      setPageCount(Math.ceil(data.meta.pagination.total / limit));
       setLoading(false);
-      setItems(data);
     };
+
     getHighlights();
   }, [slug]);
 
-  const fetchPublications = async (currentPage) => {
-    const res = await fetch(
-      `${API_URL}/api/posts/?populate?populate[image][fields][0]=name&populate[image][fields][1]=url&populate[image][fields][2]=aletrnativeText&populate[image][fields][3]=formats&populate[categories][fields][0]=title&populate[categories][fields][1]=slug&filters[categories][slug][$eq]=${slug}&pagination[pageSize]=${limit}`
-    );
-    const data = await res.json();
-    return data;
-  };
-
   const handlePageClick = async (data) => {
-    let currentPage = data.selected + 1;
-    const publicationFromServer = await fetchPublications(currentPage);
-    setItems(publicationFromServer);
+    const currentPage = data.selected + 1;
+    const query = buildQuery(currentPage);
+    const res = await fetch(`${API_URL}/api/posts?${query}`);
+    const result = await res.json();
+    setItems(result.data || []);
   };
 
   return (
@@ -74,7 +101,7 @@ const HighLights = () => {
                   </span>
                 </h4>
               </div>
-              {/* Rest of your component remains the same */}
+
               <div className="border-bottom-last-0 first-pt-0">
                 {loading ? (
                   <div className="loader-container border-bottom">
@@ -83,65 +110,58 @@ const HighLights = () => {
                         <div className="col-sm-3">
                           <Skeleton count={10} height={200} />
                         </div>
-                        <div className="col-sm-9 ">
+                        <div className="col-sm-9">
                           <Skeleton count={10} height={200} />
                         </div>
-                        <hr></hr>
+                        <hr />
                       </div>
                     </article>
                   </div>
                 ) : (
-                  items &&
-                  items.data?.map((highlight) => {
+                  items.map((highlight) => {
+                    const { attributes } = highlight;
+                    const image =
+                      attributes.image?.data?.[0]?.attributes?.formats?.thumbnail;
+
                     return (
                       <article
                         className="card card-full hover-a py-5"
-                        key={highlight.attributes.id}
+                        key={highlight.id}
                       >
                         <div className="row">
                           <div className="col-sm-3">
-                            <div>
-                              {highlight.attributes.image.data && (
-                                <Image
-                                  width={
-                                    highlight.attributes.image.data[0].attributes
-                                      .formats.thumbnail.width
-                                  }
-                                  height={
-                                    highlight.attributes.image.data[0].attributes
-                                      .formats.thumbnail.height
-                                  }
-                                  src={
-                                    highlight.attributes.image.data[0].attributes
-                                      .formats.thumbnail.url
-                                  }
-                                  alt="Image description"
-                                />
-                              )}
-                            </div>
+                            {image && (
+                              <Image
+                                width={image.width}
+                                height={image.height}
+                                src={image.url}
+                                alt={
+                                  attributes.image?.data?.[0]?.attributes
+                                    ?.alternativeText || "Highlight Image"
+                                }
+                              />
+                            )}
                           </div>
                           <div className="col-sm-9 mt-3">
                             <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                              <Link href={`/post/${highlight.attributes.slug}`}>
+                              <Link href={`/post/${attributes.slug}`}>
                                 <h3 className="card-title h2 h3-sm h2-md">
-                                  {highlight.attributes.title}
+                                  {attributes.title}
                                 </h3>
                               </Link>
                               <div className="card-text mb-2 text-muted small">
-                                <time dateTime="2019-10-21">
-                                  {moment(
-                                    highlight.attributes.createdAt
-                                  ).format("Do MMMM YYYY")}
+                                <time dateTime={attributes.createdAt}>
+                                  {moment(attributes.createdAt).format(
+                                    "Do MMMM YYYY"
+                                  )}
                                 </time>
                               </div>
                               <p className="card-text">
                                 <ReactMarkdown>
-                                  {highlight.attributes.description.length > 350
-                                    ? highlight.attributes.description.slice(
-                                        0,
-                                        350
-                                      ) + "..."
-                                    : highlight.attributes.description}
+                                  {attributes.description.length > 350
+                                    ? attributes.description.slice(0, 350) +
+                                      "..."
+                                    : attributes.description}
                                 </ReactMarkdown>
                               </p>
                             </div>
@@ -152,9 +172,10 @@ const HighLights = () => {
                   })
                 )}
               </div>
+
               <ReactPaginate
-                previousLabel={"previous"}
-                nextLabel={"next"}
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
                 breakLabel={"..."}
                 pageCount={pageCount}
                 marginPagesDisplayed={2}

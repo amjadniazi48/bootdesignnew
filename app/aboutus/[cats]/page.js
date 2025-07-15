@@ -6,72 +6,94 @@ import Link from "next/link";
 import ReactPaginate from "react-paginate";
 import moment from "moment";
 import Image from "next/image";
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import "moment/locale/ur";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-//==================
+import qs from "qs";
+
+const limit = 10;
+
 const HighLights = () => {
   const searchParams = useSearchParams();
-  
-  const slug = searchParams.get('slug')
+  const slug = searchParams.get("slug");
 
   const [items, setItems] = useState([]);
-  const [pageCount, setpageCount] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  let limit = 10;
-  useEffect(() => {
-    setLoading(true);
-    const getHighlights = async () => {
-      const res = await fetch(
-        `${API_URL}/api/posts/?populate?populate[image][fields][0]=name&populate[image][fields][1]=url&populate[image][fields][2]=aletrnativeText&populate[image][fields][3]=formats&populate[categories][fields][0]=title&populate[categories][fields][1]=slug&filters[categories][slug][$eq]=${slug}&pagination[pageSize]=${limit}`
-        // `https://jsonplaceholder.typicode.com/comments?_page=1&_limit=${limit}`
-      );
-      const data = await res.json();
-      //  console.log("hightlights", data);
-      const total = data.meta.pagination.total;
-      setpageCount(Math.ceil(total / limit));
-      // console.log(Math.ceil(total/12));
-      setLoading(false);
-      setItems(data);
-    };
 
-    getHighlights();
-  }, [slug]);
-  console.log("items", items);
-  const fetchPublications = async (currentPage) => {
-    const res = await fetch(
-      `${API_URL}/api/posts/?populate?populate[image][fields][0]=name&populate[image][fields][1]=url&populate[image][fields][2]=aletrnativeText&populate[image][fields][3]=formats&populate[categories][fields][0]=title&populate[categories][fields][1]=slug&filters[categories][slug][$eq]=${slug}&pagination[pageSize]=${limit}`
-      // `https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${limit}`
+  const buildQuery = (page = 1) => {
+    return qs.stringify(
+      {
+        populate: {
+          image: {
+            fields: ["name", "url", "alternativeText", "formats"],
+          },
+          categories: {
+            fields: ["title", "slug"],
+          },
+        },
+        filters: {
+          categories: {
+            slug: {
+              $eq: slug,
+            },
+          },
+        },
+        pagination: {
+          page,
+          pageSize: limit,
+        },
+      },
+      { encodeValuesOnly: true }
     );
+  };
+
+  const fetchHighlights = async (page = 1) => {
+    const query = buildQuery(page);
+    const res = await fetch(`${API_URL}/api/posts?${query}`);
     const data = await res.json();
     return data;
   };
+
+  useEffect(() => {
+    if (!slug) return;
+
+    const loadInitialHighlights = async () => {
+      setLoading(true);
+      const data = await fetchHighlights(1);
+      setItems(data.data || []);
+      setPageCount(Math.ceil(data.meta.pagination.total / limit));
+      setLoading(false);
+    };
+
+    loadInitialHighlights();
+  }, [slug]);
+
   const handlePageClick = async (data) => {
-  //  console.log(data.selected);
-
-    let currentPage = data.selected + 1;
-
-    const publicationFromServer = await fetchPublications(currentPage);
-
-    setItems(publicationFromServer);
-    //console.log(items)
+    const currentPage = data.selected + 1;
+    setLoading(true);
+    const result = await fetchHighlights(currentPage);
+    setItems(result.data || []);
+    setLoading(false);
   };
+
+  const categoryTitle =
+    items?.[0]?.attributes?.categories?.data?.[0]?.attributes?.title || "";
+
   return (
-    <div className="wrapper ">
-      {/* main content */}
-      
+    <div className="wrapper">
       <main id="content">
         <div className="container">
           <div className="row p-4 mt-20">
             <div className="col-sm-12">
               <div className="block-title-6 text-center">
-
                 <h4 className="h5 border-primary">
-                  <span className="bg-primary text-white">{items && items?.data?.[0]?.attributes?.categories?.data?.[0]?.attributes?.title}</span>
+                  <span className="bg-primary text-white">
+                    {categoryTitle || <Skeleton width={150} />}
+                  </span>
                 </h4>
-
               </div>
 
               <div className="border-bottom-last-0 first-pt-0">
@@ -82,71 +104,58 @@ const HighLights = () => {
                         <div className="col-sm-3">
                           <Skeleton count={10} height={200} />
                         </div>
-                        <div className="col-sm-9 ">
+                        <div className="col-sm-9">
                           <Skeleton count={10} height={200} />
                         </div>
-                        <hr></hr>
+                        <hr />
                       </div>
                     </article>
                   </div>
                 ) : (
-                  items &&
-                  items.data?.map((highlight) => {
+                  items.map((highlight) => {
+                    const { attributes } = highlight;
+                    const image =
+                      attributes.image?.data?.[0]?.attributes?.formats?.thumbnail;
+
                     return (
                       <article
                         className="card card-full hover-a py-5"
-                        key={highlight.attributes.id}
+                        key={highlight.id}
                       >
                         <div className="row">
                           <div className="col-sm-3">
-                            <div>
-                              {highlight.attributes.image.data && (
-                                <Image
-                                  width={
-                                    highlight.attributes.image.data[0].attributes
-                                      .formats.thumbnail.width
-                                  }
-                                  height={
-                                    highlight.attributes.image.data[0].attributes
-                                      .formats.thumbnail.height
-                                  }
-                                  src={
-                                    highlight.attributes.image.data[0].attributes
-                                      .formats.thumbnail.url
-                                  }
-                                  alt="Image description"
-                                />
-                              )}
-                            </div>
+                            {image && (
+                              <Image
+                                width={image.width}
+                                height={image.height}
+                                src={image.url}
+                                alt={
+                                  attributes.image?.data?.[0]?.attributes
+                                    ?.alternativeText || "Highlight Image"
+                                }
+                              />
+                            )}
                           </div>
                           <div className="col-sm-9 mt-3">
                             <div className="card-body pt-3 pt-sm-0 pt-md-3 pt-lg-0">
-                              <Link href={`/post/${highlight.attributes.slug}`}>
+                              <Link href={`/post/${attributes.slug}`}>
                                 <h3 className="card-title h2 h3-sm h2-md">
-                                  {highlight.attributes.title}
+                                  {attributes.title}
                                 </h3>
                               </Link>
                               <div className="card-text mb-2 text-muted small">
-                                {/* <span className="d-none d-sm-inline me-1">
-                              <a className="fw-bold" href="#">
-                                John Doe
-                              </a>
-                            </span> */}
-                                <time dateTime="2019-10-21">
-                                  {moment(
-                                    highlight.attributes.createdAt
-                                  ).format("Do MMMM YYYY")}
+                                <time dateTime={attributes.createdAt}>
+                                  {moment(attributes.createdAt).format(
+                                    "Do MMMM YYYY"
+                                  )}
                                 </time>
                               </div>
                               <p className="card-text">
                                 <ReactMarkdown>
-                                
-                                  {highlight.attributes.description.length > 350
-                                    ? highlight.attributes.description.slice(
-                                        0,
-                                       350
-                                      ) + "..."
-                                    : highlight.attributes.description}
+                                  {attributes.description.length > 350
+                                    ? attributes.description.slice(0, 350) +
+                                      "..."
+                                    : attributes.description}
                                 </ReactMarkdown>
                               </p>
                             </div>
@@ -157,9 +166,10 @@ const HighLights = () => {
                   })
                 )}
               </div>
+
               <ReactPaginate
-                previousLabel={"previous"}
-                nextLabel={"next"}
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
                 breakLabel={"..."}
                 pageCount={pageCount}
                 marginPagesDisplayed={2}
