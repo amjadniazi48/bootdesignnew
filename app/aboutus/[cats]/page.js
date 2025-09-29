@@ -41,7 +41,7 @@ const HighLights = () => {
             },
           },
         },
-         sort: ["createdAt:desc"], // ✅ latest first
+         sort: ["createdAt:asc"], // ✅ latest first
         pagination: {
           page,
           pageSize: limit,
